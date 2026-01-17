@@ -11,7 +11,7 @@ typedef struct{
 } TaskList;
 
 
-int add_task(TaskList* list, char new_node, int id);
-int mark_done(TaskList* list, int target_id);
-int del_task(TaskList* list, int target_id)
-int run();
+int add_task(TaskList* list, char new_node, int id); //добавление задачи
+int mark_done(TaskList* list, int target_id); //изменение статуса задачи
+int del_task(TaskList* list, int target_id) //удаление задачи по ID
+int run(); //запуск меню выбора действий
