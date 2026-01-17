@@ -1,3 +1,6 @@
-// Добавь в main.c строку:
-printf("Hello from %s!\n", __DATE__);
+#include <stdio.h>
 
+int main(){
+    printf("Hello!");
+    return 0;
+}
