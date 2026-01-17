@@ -172,7 +172,7 @@ int run_main(){
 
 			default:
 				printf("НЕВРНЫЙ ВЫБОР! ПОПРОБУЙТЕ 1-5\n");
-				getchar();
+				getchar(); //пауза
 
 		}
 
