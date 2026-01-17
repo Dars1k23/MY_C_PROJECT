@@ -31,6 +31,79 @@ int add_task(TaskList* list, char new_node, int id){//функция для до
 
 }
 
+int mark_done(TaskList* list, int target_id){
+	
+	if (!list || list->count == 0){
+		return -1;
+	}
+	
+	for (int i = 0; i < list->count; i++){
+		if (list->tasks[i].id == target_id){
+			if (list->tasks[i].is_done == 1){
+				printf("Задача уже выполнена!");
+				return 0; //задача уже выполнена
+			}
+
+			list->tasls[i].is_done = 1;
+			return 0; //задача успешна найдена, и ее статус изменился
+		}
+	}
+
+	return -1; //если такой задачи не найдено
+
+}
+
+int del_task(TaskList* list, int target_id){
+
+	if (!list || list->count == 0){
+		return -1;
+	}
+
+	int idex_del = -1;
+
+	for (int i = 0; i < list->count; i++){
+		if (list->tasks[i] == target_id){
+			index_del += i;
+
+		}
+	}
+
+	if (index_del == -1){
+		printf("Такой задачи не найдено!");
+		return -1;
+	}
+
+	int move_el = list->count - index_del - 1;
+
+	if (move_el > 0){
+		memove(
+			&list->tasks[index_del], //куда
+			&list->tasks[index_del + 1], //откуда
+			move_el * sizeof(Task) //колл-во байт
+			);
+	}
+
+	list->count--; //уменьшаем значение размера
+
+	return 0; //Успешно удалили
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int run_main(){
 	TaskList list = {0};
 	load_tasks(&list, "data/tasks.dat");
@@ -38,6 +111,7 @@ int run_main(){
 	int choice;
 	char new_node[256];
 	int id;
+	int target_id;
 
 	while (1){
 		printf("\033[2J\033[H"); //отчистка экрана
@@ -70,8 +144,8 @@ int run_main(){
 			
 			case 2:
 				printf("ID задачи: ");
-				scanf("%d", &id);
-				mark_done(&list, id); //функция изменения статуса задачи с '0 - невыполено' на '1 - выполнено'
+				scanf("%d", &target_id);
+				mark_done(&list, target_id); //функция изменения статуса задачи с '0 - невыполено' на '1 - выполнено'
 				printf("Успешно отмечено!\n");
 				getchar(); //пауза
 				break;
@@ -105,3 +179,5 @@ int run_main(){
 	}
 
 }
+
+
