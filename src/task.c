@@ -88,22 +88,6 @@ int del_task(TaskList* list, int target_id){
 	return 0; //Успешно удалили
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int run_main(){
 	TaskList list = {0};
 	load_tasks(&list, "data/tasks.dat");
