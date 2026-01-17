@@ -1,4 +1,4 @@
-ttypedef struct{
+typedef struct{
 	int id;
 	char task[256];
 	int is_done;
