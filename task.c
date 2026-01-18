@@ -88,6 +88,17 @@ int del_task(TaskList* list, int target_id){
 	return 0; //Успешно удалили
 }
 
+int print_list(TaskList* list){
+    printf("==== YOURS TASKS ====");
+    for (int i = 0; i < list->count; i++){
+        printf("%d%c\n",list->tasks[i].id, list->tasks[i].task);
+    }
+
+    return 0;
+}
+
+
+
 int run_main(){
 	TaskList list = {0};
 	load_tasks(&list, "data/tasks.dat");
