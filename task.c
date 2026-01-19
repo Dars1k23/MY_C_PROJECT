@@ -59,7 +59,7 @@ int del_task(TaskList* list, int target_id){
 		return -1;
 	}
 
-	int idex_del = -1;
+	int index_del = -1;
 
 	for (int i = 0; i < list->count; i++){
 		if (list->tasks[i] == target_id){
